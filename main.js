@@ -8,19 +8,16 @@
 let transaction = {
     cost: 0, 
     date: new Date(), 
-    category: "", 
-    required = false,
-    regularExpense = false,
+    category: "",
     store = ""
 };
 
 // A type of object for storing specific items purchased
 let item = {
     name: "",
+    cost: "",
     date: new Date(),
     category: "",
-    required = false,
-    regularExpense = false,
     store = ""
 }
 
@@ -28,8 +25,8 @@ let item = {
 let receipt = {
     // A string pointing to the image of the receipt. e.g. 'imageFile = "myImage.jpg"' 
     imageFile: "",
-    category: "",
     date: new Date(),
+    category: "",
     store = ""
 }
 // // // // // // // //
@@ -64,13 +61,13 @@ const allReceipts = [];
 // 
 
 // Create a new transaction
-function createTransaction(index, cost, date, category, required, regularExpense, store) {
+function createTransaction(index, cost, date, category, store, required, regularExpense) {
     const newTransaction = Object.create(transaction);
     newTransaction.cost = x;
     return newTransaction;
 }
 
-// Add new transaction to array. e.g. addTransaction(createTransaction(1, $5, 5/5/2021, 'groceries', true, false, 'seki'));
+// Add new transaction to array. e.g. addTransaction(createTransaction(1, $5, 5/5/2021, 'groceries', 'seki', true, false));
 function addTransaction(newTransaction) {
     allTransactions.push(newTransaction);
     return allTransactions; 
