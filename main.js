@@ -6,25 +6,34 @@
 
 // A type of object for storing transactions
 let transaction = {
-    cost: 0, 
+    totalCost: 0, 
+    transactionItems: [],
     date: new Date(), 
     category: "",
-    store = ""
+    store = "",
+    receipt = ""
 };
 
-// A type of object for storing specific items purchased
+// A type of object for storing specific items purchased.
 let item = {
     name: "",
     cost: "",
+    // Reference to containing transaction
+    parentTransaction: "",
+    // Get date from parent transaction
     date: new Date(),
     category: "",
-    store = ""
+    store = "",
+    itemImage = ""
 }
 
 // A type of object for storing data from receipts
 let receipt = {
     // A string pointing to the image of the receipt. e.g. 'imageFile = "myImage.jpg"' 
     imageFile: "",
+    // Reference to containing transaction
+    parentTransaction: "",
+    // Get date from parent transaction
     date: new Date(),
     category: "",
     store = ""
