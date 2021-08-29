@@ -4,6 +4,55 @@
 // //
 // 
 
+
+const yen1Value = 1;
+const yen5Value = 5;
+const yen10Value = 10;
+const yen50Value = 50;
+const yen100Value = 100;
+const yen500Value = 500;
+const yen1000Value = 1000;
+const yen5000Value = 5000;
+const yen10000Value = 10000;
+
+let yen1Count = 0;
+let yen5Count = 0;
+let yen10Count = 0;
+let yen50Count = 0;
+let yen100Count = 0;
+let yen500Count = 0;
+let yen1000Count = 0;
+let yen5000Count = 0;
+let yen10000Count = 0;
+
+let totalCoinValue = 0;
+
+function updateTotal() {
+    let total = 0;
+    total = total + (yen1Count * yen1Value);
+    total = total + (yen5Count * yen5Value);
+    total = total + (yen10Count * yen10Value);
+    total = total + (yen50Count * yen50Value);
+    total = total + (yen100Count * yen100Value);
+    total = total + (yen500Count * yen500Value);
+    total = total + (yen1000Count * yen1000Value);
+    total = total + (yen5000Count * yen5000Value);
+    total = total + (yen10000Count * yen10000Value);
+
+    return total;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // A type of object for storing transactions
 let transaction = {
     totalCost: 0, 
