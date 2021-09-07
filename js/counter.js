@@ -4,7 +4,7 @@
 // //
 // 
 
-
+// Values for the currency types
 const yen1Value = 1;
 const yen5Value = 5;
 const yen10Value = 10;
@@ -15,6 +15,7 @@ const yen1000Value = 1000;
 const yen5000Value = 5000;
 const yen10000Value = 10000;
 
+// Count for each currency type
 let yen1Count = 0;
 let yen5Count = 0;
 let yen10Count = 0;
@@ -25,22 +26,69 @@ let yen1000Count = 0;
 let yen5000Count = 0;
 let yen10000Count = 0;
 
-let totalCoinValue = 0;
+// Total Value for each currency type
+let yen1TotalValue = 0;
+let yen5TotalValue = 0;
+let yen10TotalValue = 0;
+let yen50TotalValue = 0;
+let yen100TotalValue = 0;
+let yen500TotalValue = 0;
+let yen1000TotalValue = 0;
+let yen5000TotalValue = 0;
+let yen10000TotalValue = 0;
 
+// Total Value for all currency types
+let totalValue = 0;
+
+// 
+// Click Events
+// 
+
+// Plus 1 yen
+document.getElementById("1-yen-plus-button").addEventListener("click", function() {
+    // Increase by 1
+    yen1Count = yen1Count + 1;
+    // Display new value
+    document.getElementById("1-yen-count").innerText = yen1Count;
+    // Update and display totals
+    update1YenTotal();
+    updateTotal();
+});
+
+// Minus 1 yen
+document.getElementById("1-yen-minus-button").addEventListener("click", function() {
+    // Reduce by 1
+    yen1Count = yen1Count - 1;
+    // Make sure it's not below 0
+    if(yen1Count < 0) {
+        yen1Count = 0;
+    };
+    // Display new value
+    document.getElementById("1-yen-count").innerText = yen1Count;
+    // Update and display totals
+    update1YenTotal();
+    updateTotal();
+});
+
+// Update Total Value of 1Yen 
+function update1YenTotal() {
+    yen1TotalValue = (yen1Count * yen1Value);
+};
+
+
+
+
+
+
+
+
+// Update and display the overall Total
 function updateTotal() {
-    let total = 0;
-    total = total + (yen1Count * yen1Value);
-    total = total + (yen5Count * yen5Value);
-    total = total + (yen10Count * yen10Value);
-    total = total + (yen50Count * yen50Value);
-    total = total + (yen100Count * yen100Value);
-    total = total + (yen500Count * yen500Value);
-    total = total + (yen1000Count * yen1000Value);
-    total = total + (yen5000Count * yen5000Value);
-    total = total + (yen10000Count * yen10000Value);
-
-    return total;
-}
+    // Get new Total Value
+    totalValue = (yen1TotalValue + yen5TotalValue + yen10TotalValue + yen50TotalValue + yen100TotalValue + yen500TotalValue + yen1000TotalValue + yen5000TotalValue + yen10000TotalValue);
+    // Display updated Total Value
+    document.getElementById("total-value").innerText = `Total: ￥${totalValue}`;
+};
 
 
 

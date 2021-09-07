@@ -1,65 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link to style sheet -->
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Title -->
-    <title>Cash and Coin Counter</title>
-</head>
-<body>
-    <h1>New Transaction</h1>
-    <!-- Form for entering a transaction -->
-    <form id="transactionForm" action="#">
-        <fieldset><legend>Transaction</legend>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Link to style sheet -->
+        <link rel="stylesheet" href="css/styles.css" />
+        <!-- Title -->
+        <title>Cash and Coin Counter</title>
+    </head>
+    <body>
+        <!-- Main Grid -->
+        <main>
+            <!-- Top Row -->
+            <div>
+                <!-- Clear Button -->
+                <button id="clearButton"></button>
+                <!-- Total Value -->
+                <div id="total-value">Total:￥0</div>
+            </div>
+            <!-- Money Buttons -->
+            <div>
+                <!-- ￥1 Row -->
+                <div id="1yen">
+                    <!-- Minus Button -->
+                    <button id="1-yen-minus-button" class="minus-button">-</button>
+                    <!-- ￥1 image -->
+                    <img src="" alt="" />
+                    <!-- Plus Button -->
+                    <button id="1-yen-plus-button" class="plus-button">+</button>
+                    <!-- ￥1 Count -->
+                    <p id="1-yen-count" class="currency-count"></p>
+                    <!-- ￥1 Total -->
+                    <p id="1-yen-total" class="currency-total"></p>
+                </div>
+            </div>
+        </main>
 
-            <!-- cost: 0, 
-    date: new Date(), 
-    category: "", 
-    required = false,
-    regularExpense = false,
-    store = "" -->
-
-            <!-- Cost Input -->
-            <p>
-                <label id="costLabel" class="inputLabel" for="costField">Cost</label>
-            </p>
-            <p>
-                <input type="text" required name="cost" id="costField">
-            </p>
-
-            <!-- Date Input -->
-            <p>
-                <label id="dateLabel" class="inputLabel" for="dateField">Date</label>
-            </p>
-            <p>
-                <input type="text" required name="date" id="dateField">
-            </p>
-
-            <!-- Category -->
-            <p>
-                <label id="categoryLabel" class="inputLabel" for="categoryField">Category</label>
-            </p>
-            <p>
-                <input type="text" required name="category" id="categoryField">
-            </p>
-
-            <!-- Store -->
-            <p>
-                <label id="storeLabel" class="inputLabel" for="storeField">Store</label>
-            </p>
-            <p>
-                <input type="text" required name="store" id="storeField">
-            </p>
-            <!-- Submit Button -->
-            <p>
-                <input id="submitButton" type="submit" value="Submit">
-            </p>
-        </fieldset>
-    </form>
-
-    <script src="js/main.js"></script>
-</body>
+        <script src="js/counter.js"></script>
+    </body>
 </html>
