@@ -4,81 +4,172 @@
 // //
 // 
 
-// Values for the currency types
-const yen1Value = 1;
-const yen5Value = 5;
-const yen10Value = 10;
-const yen50Value = 50;
-const yen100Value = 100;
-const yen500Value = 500;
-const yen1000Value = 1000;
-const yen5000Value = 5000;
-const yen10000Value = 10000;
+// Template object for currencies
+const currencyType = {
+    baseValue: 0,
+    count: 0,
+    // Total cumulative value based on current count
+    totalValue: 0
+}
 
-// Count for each currency type
-let yen1Count = 0;
-let yen5Count = 0;
-let yen10Count = 0;
-let yen50Count = 0;
-let yen100Count = 0;
-let yen500Count = 0;
-let yen1000Count = 0;
-let yen5000Count = 0;
-let yen10000Count = 0;
+// 
+// Currency Objects
+// 
 
-// Total Value for each currency type
-let yen1TotalValue = 0;
-let yen5TotalValue = 0;
-let yen10TotalValue = 0;
-let yen50TotalValue = 0;
-let yen100TotalValue = 0;
-let yen500TotalValue = 0;
-let yen1000TotalValue = 0;
-let yen5000TotalValue = 0;
-let yen10000TotalValue = 0;
+// ￥1 Object
+let yen1 = Object.create(currencyType);
+// Set ￥1 properties
+yen1.baseValue = 1;
+yen1.count = 0;
+yen1.totalValue = 0;
+
+// ￥5 Object
+let yen5 = Object.create(currencyType);
+// Set ￥5 properties
+yen5.baseValue = 5;
+yen5.count = 0;
+yen5.totalValue = 0;
+
+// ￥10 Object
+let yen10 = Object.create(currencyType);
+// Set ￥10 properties
+yen10.baseValue = 10;
+yen10.count = 0;
+yen10.totalValue = 0;
+
+// ￥50 Object
+let yen50 = Object.create(currencyType);
+// Set ￥50 properties
+yen50.baseValue = 50;
+yen50.count = 0;
+yen50.totalValue = 0;
+
+// ￥100 Object
+let yen100 = Object.create(currencyType);
+// Set ￥100 properties
+yen100.baseValue = 100;
+yen100.count = 0;
+yen100.totalValue = 0;
+
+// ￥500 Object
+let yen500 = Object.create(currencyType);
+// Set ￥500 properties
+yen500.baseValue = 500;
+yen500.count = 0;
+yen500.totalValue = 0;
+
+// ￥1000 Object
+let yen1000 = Object.create(currencyType);
+// Set ￥1000 properties
+yen1000.baseValue = 1000;
+yen1000.count = 0;
+yen1000.totalValue = 0;
+
+// ￥5000 Object
+let yen5000 = Object.create(currencyType);
+// Set ￥5000 properties
+yen5000.baseValue = 5000;
+yen5000.count = 0;
+yen5000.totalValue = 0;
+
+// ￥10000 Object
+let yen10000 = Object.create(currencyType);
+// Set ￥10000 properties
+yen10000.baseValue = 10000;
+yen10000.count = 0;
+yen10000.totalValue = 0;
+
+// // // // // // // //
+// // // // // // // // // // // // // // // //
+// End Create Basic Objects
+
+
+
+
+
+// 
+// //
+// Initialize Arrays
+// //
+// 
+
+// Currency Array
+const allCurrencies = [yen1, yen5, yen10, yen100, yen500, yen1000, yen5000, yen10000];
+
+// // // // // // // //
+// // // // // // // // // // // // // // // //
+// End Initialize Arrays
+
+
+
+// 
+// //
+// Initialize Variables
+// //
+// 
 
 // Total Value for all currency types
 let totalValue = 0;
 
+// 
 // HTMl Element Variables
-let clearButton = document.getElementById("clear-button");
+// 
+
+// Clear Button
+let clearButton = document.getElementById("clearButton");
+
+// // // // // // // //
+// // // // // // // // // // // // // // // //
+// End Initialize Variables
+
+
+// // Print base value of each type of currency
+// allCurrencies.forEach(function (arrayItem) {
+//     console.log(arrayItem.baseValue);
+// });
+
+
+
+
+
 
 // 
+// //
 // Click Events
+// //
 // 
 
 // Clear All
 clearButton.addEventListener("click", function() {
-    yen1Count = 0;
-    yen5Count = 0;
+    yen1.count = 0;
+    yen5.count = 0;
     
+    // Update and display totals
     update1YenTotal();
     update5YenTotal();
 
     // Display new value
-    document.getElementById("1-yen-count").innerText = yen1Count;
+    document.getElementById("yen1CountContainer").innerText = yen1.count;
     // Update and display totals
     // Display new value
-    document.getElementById("5-yen-count").innerText = yen5Count;
-    // Update and display totals
-    update5YenTotal();
-    
+    document.getElementById("yen5CountContainer").innerText = yen5Count;
+
     updateTotal();
 });
 
 // Plus 1 yen
-document.getElementById("1-yen-plus-button").addEventListener("click", function() {
+document.getElementById("yen1PlusButton").addEventListener("click", function() {
     // Increase by 1
-    yen1Count = yen1Count + 1;
+    yen1.Count = yen1.count + 1;
     // Display new value
-    document.getElementById("1-yen-count").innerText = yen1Count;
+    document.getElementById("yen1CountContainer").innerText = yen1.count;
     // Update and display totals
     update1YenTotal();
     updateTotal();
 });
 
 // Minus 1 yen
-document.getElementById("1-yen-minus-button").addEventListener("click", function() {
+document.getElementById("yen1MinusButton").addEventListener("click", function() {
     // Reduce by 1
     yen1Count = yen1Count - 1;
     // Make sure it's not below 0
@@ -92,16 +183,23 @@ document.getElementById("1-yen-minus-button").addEventListener("click", function
     updateTotal();
 });
 
+
+// // // // // // // //
+// // // // // // // // // // // // // // // //
+// End Click Events
+
+
+
 // Update Total Value of 1Yen 
 function update1YenTotal() {
-    yen1TotalValue = (yen1Count * yen1Value);
+    yen1.totalValue = (yen1.count * yen1.baseValue);
     // Display New Total
-    document.getElementById("1-yen-total").innerText = yen1TotalValue;
+    document.getElementById("yen1TotalContainer").innerText = yen1.totalValue;
 };
 
 
 // Plus 5 yen
-document.getElementById("5-yen-plus-button").addEventListener("click", function() {
+document.getElementById("yen5PlusButton").addEventListener("click", function() {
     // Increase by 1
     yen5Count = yen5Count + 1;
     // Display new value
@@ -113,7 +211,7 @@ document.getElementById("5-yen-plus-button").addEventListener("click", function(
 
 
 // Minus 5 yen
-document.getElementById("5-yen-minus-button").addEventListener("click", function() {
+document.getElementById("yen5MinusButton").addEventListener("click", function() {
     // Reduce by 5
     yen5Count = yen5Count - 1;
     // Make sure it's not below 0
@@ -144,9 +242,9 @@ function update5YenTotal() {
 // Update and display the overall Total
 function updateTotal() {
     // Get new Total Value
-    totalValue = (yen1TotalValue + yen5TotalValue + yen10TotalValue + yen50TotalValue + yen100TotalValue + yen500TotalValue + yen1000TotalValue + yen5000TotalValue + yen10000TotalValue);
+    totalValue = (yen1.totalValue + yen5.totalValue + yen10.totalValue + yen50.totalValue + yen100.totalValue + yen500.totalValue + yen1000.totalValue + yen5000.totalValue + yen10000.totalValue);
     // Display updated Total Value
-    document.getElementById("total-value").innerText = `Total: ￥${totalValue}`;
+    document.getElementById("totalValueContainer").innerText = `Total: ￥${totalValue}`;
 };
 
 
@@ -160,68 +258,13 @@ function updateTotal() {
 
 
 
-// A type of object for storing transactions
-let transaction = {
-    totalCost: 0, 
-    transactionItems: [],
-    date: new Date(), 
-    category: "",
-    store: "",
-    receipt: "",
-    note: ""
-};
-
-const testTransaction = Object.create(transaction);
-testTransaction.totalCost = 700;
-testTransaction.category = "Groceries";
-testTransaction.store = "Seki";
-testTransaction.note = "This is a test";
-
-// A type of object for storing specific items purchased.
-let item = {
-    name: "",
-    cost: "",
-    // Reference to containing transaction
-    parentTransaction: "",
-    // Get date from parent transaction
-    date: new Date(),
-    category: "",
-    store: "",
-    itemImage: ""
-}
-
-// A type of object for storing data from receipts
-let receipt = {
-    // A string pointing to the image of the receipt. e.g. 'imageFile = "myImage.jpg"' 
-    imageFile: "",
-    // Reference to containing transaction
-    parentTransaction: "",
-    // Get date from parent transaction
-    date: new Date(),
-    category: "",
-    store: ""
-}
-// // // // // // // //
-// // // // // // // // // // // // // // // //
-// End Create Basic Objects
 
 
 
 
-// 
-// //
-// Initialize Arrays
-// //
-// 
 
-// Initializes blank arrays for storing different types of objects
-const allTransactions = [];
-const allItems = [];
-const allReceipts = [];
 
-// // // // // // // //
-// // // // // // // // // // // // // // // //
-// End Initialize Arrays
+
 
 
 
