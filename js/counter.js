@@ -40,9 +40,31 @@ let yen10000TotalValue = 0;
 // Total Value for all currency types
 let totalValue = 0;
 
+// HTMl Element Variables
+let clearButton = document.getElementById("clear-button");
+
 // 
 // Click Events
 // 
+
+// Clear All
+clearButton.addEventListener("click", function() {
+    yen1Count = 0;
+    yen5Count = 0;
+    
+    update1YenTotal();
+    update5YenTotal();
+
+    // Display new value
+    document.getElementById("1-yen-count").innerText = yen1Count;
+    // Update and display totals
+    // Display new value
+    document.getElementById("5-yen-count").innerText = yen5Count;
+    // Update and display totals
+    update5YenTotal();
+    
+    updateTotal();
+});
 
 // Plus 1 yen
 document.getElementById("1-yen-plus-button").addEventListener("click", function() {
