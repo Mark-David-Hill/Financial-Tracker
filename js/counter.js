@@ -9,7 +9,9 @@ const currencyType = {
     baseValue: 0,
     count: 0,
     // Total cumulative value based on current count
-    totalValue: 0
+    totalValue: 0,
+    countContainer: 0,
+    totalValueContainer: 0
 }
 
 // 
@@ -22,6 +24,8 @@ let yen1 = Object.create(currencyType);
 yen1.baseValue = 1;
 yen1.count = 0;
 yen1.totalValue = 0;
+yen1.countContainer = document.getElementById("yen1CountContainer")
+yen1.totalValueContainer = document.getElementById("yen1TotalValueContainer")
 
 // ￥5 Object
 let yen5 = Object.create(currencyType);
@@ -160,24 +164,29 @@ clearButton.addEventListener("click", function() {
 // Plus 1 yen
 document.getElementById("yen1PlusButton").addEventListener("click", function() {
     // Increase by 1
-    yen1.Count = yen1.count + 1;
+    yen1.count = yen1.count + 1;
     // Display new value
-    document.getElementById("yen1CountContainer").innerText = yen1.count;
+    yen1.countContainer.innerText = yen1.count;
     // Update and display totals
     update1YenTotal();
     updateTotal();
 });
 
+// Increase by 1 function
+// function incrementCurrency(currencytype) {
+
+// }
+
 // Minus 1 yen
 document.getElementById("yen1MinusButton").addEventListener("click", function() {
-    // Reduce by 1
-    yen1Count = yen1Count - 1;
+    // Increase by 1
+    yen1.count = yen1.count - 1;
     // Make sure it's not below 0
-    if(yen1Count < 0) {
-        yen1Count = 0;
+    if(yen1.count < 0) {
+        yen1.count = 0;
     };
     // Display new value
-    document.getElementById("1-yen-count").innerText = yen1Count;
+    yen1.countContainer.innerText = yen1.count;
     // Update and display totals
     update1YenTotal();
     updateTotal();
@@ -194,7 +203,7 @@ document.getElementById("yen1MinusButton").addEventListener("click", function() 
 function update1YenTotal() {
     yen1.totalValue = (yen1.count * yen1.baseValue);
     // Display New Total
-    document.getElementById("yen1TotalContainer").innerText = yen1.totalValue;
+    yen1.totalValueContainer.innerText = yen1.totalValue;
 };
 
 
