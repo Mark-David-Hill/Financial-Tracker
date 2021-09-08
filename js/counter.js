@@ -73,6 +73,43 @@ document.getElementById("1-yen-minus-button").addEventListener("click", function
 // Update Total Value of 1Yen 
 function update1YenTotal() {
     yen1TotalValue = (yen1Count * yen1Value);
+    // Display New Total
+    document.getElementById("1-yen-total").innerText = yen1TotalValue;
+};
+
+
+// Plus 5 yen
+document.getElementById("5-yen-plus-button").addEventListener("click", function() {
+    // Increase by 1
+    yen5Count = yen5Count + 1;
+    // Display new value
+    document.getElementById("5-yen-count").innerText = yen5Count;
+    // Update and display totals
+    update5YenTotal();
+    updateTotal();
+});
+
+
+// Minus 5 yen
+document.getElementById("5-yen-minus-button").addEventListener("click", function() {
+    // Reduce by 5
+    yen5Count = yen5Count - 1;
+    // Make sure it's not below 0
+    if(yen5Count < 0) {
+        yen5Count = 0;
+    };
+    // Display new value
+    document.getElementById("5-yen-count").innerText = yen5Count;
+    // Update and display totals
+    update5YenTotal();
+    updateTotal();
+});
+
+// Update Total Value of 5Yen 
+function update5YenTotal() {
+    yen5TotalValue = (yen5Count * yen5Value);
+    // Display New Total
+    document.getElementById("5-yen-total").innerText = yen5TotalValue;
 };
 
 
