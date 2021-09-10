@@ -81,12 +81,14 @@ const currency = {
 // 
 // Currency Objects
 // 
+const currencyValues = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000];
 
+let allCurrencies = [];
 
 // Function for creating currency objects
-
 function createCurrency(value) {
-    let myString = `newYen${value}`;
+
+    let myString = `Yen${value}`;
     let newCurrency = eval(myString = Object.create(currency));
     console.log(newCurrency);
     newCurrency.baseValue = value;
@@ -98,13 +100,20 @@ function createCurrency(value) {
     document.getElementById(`yen${value}PlusButton`).addEventListener("click", function() {
         newCurrency.increment();
     });
+    
 }
 
+let myArrayLength = currencyValues.arrayLength;
+
+// Loop for creating all the currencies
+for (var i = 0; i < myArrayLength; i++) {
+    let currentValue = currencyValues[i];
+    allCurrencies.push(createCurrency(currentValue));
+}
+
+console.log(allCurrencies);
 
 
-
-
-// console.log(newYen1);
 
 // // ￥1 Object
 // let yen1 = Object.create(currency);
