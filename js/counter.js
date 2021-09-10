@@ -4,6 +4,12 @@
 // //
 // 
 
+
+
+// // // // The countContainer is getting set for most of these, but the totalValueContainer is only getting set for yen1 for some reason.
+
+
+
 // 
 // //
 //  Objects
@@ -23,6 +29,22 @@ const currency = {
     // Methods
     // 
 
+    // Update total values for this currency and the overall total.
+    updateTotals() {
+        // Set this currency's new total value
+        this.totalValue = (this.count * this.baseValue);
+        // Calculate and set new total value for all currencies combined
+        overallTotalValue = (yen1.totalValue + yen5.totalValue + yen10.totalValue + yen50.totalValue + yen100.totalValue + yen500.totalValue + yen1000.totalValue + yen5000.totalValue + yen10000.totalValue);
+    },
+
+    // Display values for this currency and total
+    displayTotals() {
+        // Display new total for this currency
+        this.totalValueContainer.innerText = this.totalValue;
+        // Display new overall total
+        document.getElementById("totalValueContainer").innerText = `Total: ￥${overallTotalValue}`;
+    },
+
     // Increment currency count up by 1
     increment() {
         // Increase by 1
@@ -38,30 +60,21 @@ const currency = {
         // Decrease by 1
         this.count = this.count - 1;
         // Make sure it's not below 0
-        if(yen1.count < 0) {
-            yen1.count = 0;
+        if(this.count < 0) {
+            this.count = 0;
         };
         // Display new value
         this.countContainer.innerText = this.count;
         // Update and display totals
-        update1YenTotal();
-        updateTotal();
+        this.updateTotals();
+        this.displayTotals();
     },
 
-    // Update total values for this currency and the overall total.
-    updateTotals() {
-        // Set this currency's new total value
-        this.totalValue = (this.count * this.baseValue);
-        // Calculate and set new total value for all currencies combined
-        overallTotalValue = (yen1.totalValue + yen5.totalValue + yen10.totalValue + yen50.totalValue + yen100.totalValue + yen500.totalValue + yen1000.totalValue + yen5000.totalValue + yen10000.totalValue);
-    },
-
-    // Display values for this currency and total
-    displayTotals() {
-        // Display new total for this currency
-        this.totalValueContainer.innerText = this.totalValue;
-        // Display new overall total
-        document.getElementById("totalValueContainer").innerText = `Total: ￥${overallTotalValue}`;
+    // Clear total values and update display
+    clear() {
+        // Set to 0
+        this.count = 0;
+        this.displayTotals();
     }
 };
 
@@ -69,14 +82,38 @@ const currency = {
 // Currency Objects
 // 
 
-// ￥1 Object
-let yen1 = Object.create(currency);
-// Set ￥1 properties
-yen1.baseValue = 1;
-yen1.count = 0;
-yen1.totalValue = 0;
-yen1.countContainer = document.getElementById("yen1CountContainer")
-yen1.totalValueContainer = document.getElementById("yen1TotalValueContainer")
+
+// Function for creating currency objects
+
+function createCurrency(value) {
+    let myString = `newYen${value}`;
+    let newCurrency = eval(myString = Object.create(currency));
+    console.log(newCurrency);
+    newCurrency.baseValue = value;
+    newCurrency.count = 0;
+    newCurrency.totalValue = 0;
+    newCurrency.countContainer = document.getElementById(`yen${value}CountContainer`)
+    newCurrency.totalValueContainer = document.getElementById(`yen${value}TotalValueContainer`)
+    // Create event listener for the plus button for this currency
+    document.getElementById(`yen${value}PlusButton`).addEventListener("click", function() {
+        newCurrency.increment();
+    });
+}
+
+
+
+
+
+// console.log(newYen1);
+
+// // ￥1 Object
+// let yen1 = Object.create(currency);
+// // Set ￥1 properties
+// yen1.baseValue = 1;
+// yen1.count = 0;
+// yen1.totalValue = 0;
+// yen1.countContainer = document.getElementById("yen1CountContainer")
+// yen1.totalValueContainer = document.getElementById("yen1TotalValueContainer")
 
 // ￥5 Object
 let yen5 = Object.create(currency);
@@ -93,6 +130,8 @@ let yen10 = Object.create(currency);
 yen10.baseValue = 10;
 yen10.count = 0;
 yen10.totalValue = 0;
+yen10.countContainer = document.getElementById("yen10CountContainer")
+yen10.totalValueContainer = document.getElementById("yen10TotalValueContainer")
 
 // ￥50 Object
 let yen50 = Object.create(currency);
@@ -100,6 +139,8 @@ let yen50 = Object.create(currency);
 yen50.baseValue = 50;
 yen50.count = 0;
 yen50.totalValue = 0;
+yen50.countContainer = document.getElementById("yen50CountContainer")
+yen50.totalValueContainer = document.getElementById("yen50TotalValueContainer")
 
 // ￥100 Object
 let yen100 = Object.create(currency);
@@ -107,6 +148,8 @@ let yen100 = Object.create(currency);
 yen100.baseValue = 100;
 yen100.count = 0;
 yen100.totalValue = 0;
+yen100.countContainer = document.getElementById("yen100CountContainer")
+yen100.totalValueContainer = document.getElementById("yen100TotalValueContainer")
 
 // ￥500 Object
 let yen500 = Object.create(currency);
@@ -114,6 +157,8 @@ let yen500 = Object.create(currency);
 yen500.baseValue = 500;
 yen500.count = 0;
 yen500.totalValue = 0;
+yen500.countContainer = document.getElementById("yen500CountContainer")
+yen500.totalValueContainer = document.getElementById("yen500TotalValueContainer")
 
 // ￥1000 Object
 let yen1000 = Object.create(currency);
@@ -121,6 +166,8 @@ let yen1000 = Object.create(currency);
 yen1000.baseValue = 1000;
 yen1000.count = 0;
 yen1000.totalValue = 0;
+yen1000.countContainer = document.getElementById("yen1000CountContainer")
+yen1000.totalValueContainer = document.getElementById("yen1000TotalValueContainer")
 
 // ￥5000 Object
 let yen5000 = Object.create(currency);
@@ -128,6 +175,8 @@ let yen5000 = Object.create(currency);
 yen5000.baseValue = 5000;
 yen5000.count = 0;
 yen5000.totalValue = 0;
+yen5000.countContainer = document.getElementById("yen5000CountContainer")
+yen5000.totalValueContainer = document.getElementById("yen5000TotalValueContainer")
 
 // ￥10000 Object
 let yen10000 = Object.create(currency);
@@ -135,6 +184,10 @@ let yen10000 = Object.create(currency);
 yen10000.baseValue = 10000;
 yen10000.count = 0;
 yen10000.totalValue = 0;
+yen10000.countContainer = document.getElementById("yen10000CountContainer")
+yen10000.totalValueContainer = document.getElementById("yen10000TotalValueContainer")
+
+
 
 // // // // // // // //
 // // // // // // // // // // // // // // // //
@@ -151,7 +204,7 @@ yen10000.totalValue = 0;
 // 
 
 // Currency Array
-const allCurrencies = [yen1, yen5, yen10, yen100, yen500, yen1000, yen5000, yen10000];
+// const allCurrencies = [yen1, yen5, yen10, yen100, yen500, yen1000, yen5000, yen10000];
 
 // // // // // // // //
 // // // // // // // // // // // // // // // //
@@ -198,108 +251,97 @@ let clearButton = document.getElementById("clearButton");
 
 // Clear All
 clearButton.addEventListener("click", function() {
-    yen1.count = 0;
-    yen5.count = 0;
-    
-    // Update and display totals
-    update1YenTotal();
-    update5YenTotal();
-
-    // Display new value
-    document.getElementById("yen1CountContainer").innerText = yen1.count;
-    // Update and display totals
-    // Display new value
-    document.getElementById("yen5CountContainer").innerText = yen5Count;
-
-    updateTotal();
+    overallTotalValue = 0;
+    yen1.clear();
+    yen5.clear();
+    yen10.clear();
+    yen50.clear();
+    yen100.clear();
+    yen500.clear();
+    yen1000.clear();
+    yen5000.clear();
+    yen10000.clear();
 });
+
+// 
+// // Plus Buttons
+// 
 
 // Plus 1 yen
-document.getElementById("yen1PlusButton").addEventListener("click", function() {
+    document.getElementById("yen1PlusButton").addEventListener("click", function() {
     yen1.increment();
 });
+// Plus 5 yen
+    document.getElementById("yen5PlusButton").addEventListener("click", function() {
+    yen5.increment();
+});
+// Plus 10 yen
+    document.getElementById("yen10PlusButton").addEventListener("click", function() {
+    yen10.increment();
+});
+// Plus 50 yen
+    document.getElementById("yen50PlusButton").addEventListener("click", function() {
+    yen50.increment();
+});
+// Plus 100 yen
+    document.getElementById("yen100PlusButton").addEventListener("click", function() {
+    yen100.increment();
+});
+// Plus 500 yen
+    document.getElementById("yen500PlusButton").addEventListener("click", function() {
+    yen500.increment();
+});
+// Plus 1000 yen
+    document.getElementById("yen1000PlusButton").addEventListener("click", function() {
+    yen1000.increment();
+});
+
+// 
+// // Minus Buttons
+//
 
 // Minus 1 yen
-document.getElementById("yen1MinusButton").addEventListener("click", function() {
+    document.getElementById("yen1MinusButton").addEventListener("click", function() {
     yen1.decrement();
 });
+// Minus 5 yen
+    document.getElementById("yen5MinusButton").addEventListener("click", function() {
+    yen5.decrement();
+});
+// Minus 10 yen
+    document.getElementById("yen10MinusButton").addEventListener("click", function() {
+    yen10.decrement();
+});
+// Minus 50 yen
+    document.getElementById("yen50MinusButton").addEventListener("click", function() {
+    yen50.decrement();
+});
+// Minus 100 yen
+    document.getElementById("yen100MinusButton").addEventListener("click", function() {
+    yen100.decrement();
+});
+// Minus 500 yen
+    document.getElementById("yen500MinusButton").addEventListener("click", function() {
+    yen500.decrement();
+});
+// Minus 1000 yen
+    document.getElementById("yen1000MinusButton").addEventListener("click", function() {
+    yen1000.decrement();
+});
+// Minus 5000 yen
+    document.getElementById("yen5000MinusButton").addEventListener("click", function() {
+    yen5000.decrement();
+});
+// Minus 10000 yen
+    document.getElementById("yen10000MinusButton").addEventListener("click", function() {
+    yen10000.decrement();
+});
+
 
 
 // // // // // // // //
 // // // // // // // // // // // // // // // //
 // End Click Events
-
-
-
-
-
-
-// Plus 5 yen
-document.getElementById("yen5PlusButton").addEventListener("click", function() {
-    // Increase by 1
-    yen5Count = yen5Count + 1;
-    // Display new value
-    document.getElementById("5-yen-count").innerText = yen5Count;
-    // Update and display totals
-    update5YenTotal();
-    updateTotal();
-});
-
-
-// Minus 5 yen
-document.getElementById("yen5MinusButton").addEventListener("click", function() {
-    // Reduce by 5
-    yen5Count = yen5Count - 1;
-    // Make sure it's not below 0
-    if(yen5Count < 0) {
-        yen5Count = 0;
-    };
-    // Display new value
-    document.getElementById("5-yen-count").innerText = yen5Count;
-    // Update and display totals
-    update5YenTotal();
-    updateTotal();
-});
-
-// Update Total Value of 5Yen 
-function update5YenTotal() {
-    yen5TotalValue = (yen5Count * yen5Value);
-    // Display New Total
-    document.getElementById("5-yen-total").innerText = yen5TotalValue;
-};
-
-
-
-
-
-
-
-
-// // Update and display the overall Total
-// function updateTotal() {
-//     // Get new Total Value
-//     totalValue = (yen1.totalValue + yen5.totalValue + yen10.totalValue + yen50.totalValue + yen100.totalValue + yen500.totalValue + yen1000.totalValue + yen5000.totalValue + yen10000.totalValue);
-//     // Display updated Total Value
-//     document.getElementById("totalValueContainer").innerText = `Total: ￥${totalValue}`;
-// };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -311,22 +353,7 @@ function update5YenTotal() {
 // //
 // 
 
-// Create a new transaction
-function createTransaction(index, cost, date, category, store, required, regularExpense) {
-    const newTransaction = Object.create(transaction);
-    newTransaction.cost = x;
-    return newTransaction;
-}
 
-// Add new transaction to array. e.g. addTransaction(createTransaction(1, $5, 5/5/2021, 'groceries', 'seki', true, false));
-function addTransaction(newTransaction) {
-    allTransactions.push(newTransaction);
-    return allTransactions; 
-};
-
-// function addItem();
-
-// function addReceipt();
 
 // // // // // // // //
 // // // // // // // // // // // // // // // //
