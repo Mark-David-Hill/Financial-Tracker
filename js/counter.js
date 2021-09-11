@@ -4,12 +4,6 @@
 // //
 // 
 
-
-
-// // // // The countContainer is getting set for most of these, but the totalValueContainer is only getting set for yen1 for some reason.
-
-
-
 // 
 // //
 //  Objects
@@ -35,11 +29,17 @@ const currency = {
         // Set this currency's new total value
         this.totalValue = (this.count * this.baseValue);
         // Calculate and set new total value for all currencies combined
-        overallTotalValue = (yen1.totalValue + yen5.totalValue + yen10.totalValue + yen50.totalValue + yen100.totalValue + yen500.totalValue + yen1000.totalValue + yen5000.totalValue + yen10000.totalValue);
+
+        overallTotalValue = 0;
+        for (i = 0; i < allCurrencies.length; i++) {
+            overallTotalValue = overallTotalValue + allCurrencies[i].totalValue;
+        }
     },
 
     // Display values for this currency and total
     displayTotals() {
+        // Display new count value for this currency
+        this.countContainer.innerText = this.count;
         // Display new total for this currency
         this.totalValueContainer.innerText = this.totalValue;
         // Display new overall total
@@ -50,8 +50,6 @@ const currency = {
     increment() {
         // Increase by 1
         this.count = this.count + 1;
-        // Display new value
-        this.countContainer.innerText = this.count;
         // Update and display totals
         this.updateTotals();
         this.displayTotals();
@@ -64,8 +62,6 @@ const currency = {
         if(this.count < 0) {
             this.count = 0;
         };
-        // Display new value
-        this.countContainer.innerText = this.count;
         // Update and display totals
         this.updateTotals();
         this.displayTotals();
@@ -75,6 +71,7 @@ const currency = {
     clear() {
         // Set to 0
         this.count = 0;
+        this.updateTotals();
         this.displayTotals();
     }
 };
