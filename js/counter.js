@@ -80,17 +80,20 @@ const currency = {
 };
 
 // 
-// Currency Objects
+// Create Currency
 // 
+
+// Array for all currency values
 const currencyValues = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000];
 
+// Initialize array for storing all the currency objects.
 let allCurrencies = [];
 
 // Function for creating currency objects
 function createCurrency(value) {
-
     let myString = `Yen${value}`;
-    let newCurrency = eval(myString = Object.create(currency));
+    // let newCurrency = eval(myString = Object.create(currency));
+    let newCurrency = Object.create(currency);
     newCurrency.baseValue = value;
     newCurrency.count = 0;
     newCurrency.totalValue = 0;
@@ -99,6 +102,10 @@ function createCurrency(value) {
     // Create event listener for the plus button for this currency
     document.getElementById(`yen${value}PlusButton`).addEventListener("click", function() {
         newCurrency.increment();
+    });
+    // Create event listener for the minus button for this currency
+    document.getElementById(`yen${value}MinusButton`).addEventListener("click", function() {
+        newCurrency.decrement();
     });
     allCurrencies.push(newCurrency);
 }
@@ -117,20 +124,6 @@ console.log(allCurrencies);
 
 
 
-
-
-// 
-// //
-// Initialize Arrays
-// //
-// 
-
-// Currency Array
-// const allCurrencies = [yen1, yen5, yen10, yen100, yen500, yen1000, yen5000, yen10000];
-
-// // // // // // // //
-// // // // // // // // // // // // // // // //
-// End Initialize Arrays
 
 
 
@@ -154,17 +147,6 @@ let clearButton = document.getElementById("clearButton");
 // // // // // // // // // // // // // // // //
 // End Initialize Variables
 
-
-// // Print base value of each type of currency
-// allCurrencies.forEach(function (arrayItem) {
-//     console.log(arrayItem.baseValue);
-// });
-
-
-
-
-
-
 // 
 // //
 // Click Events
@@ -174,109 +156,11 @@ let clearButton = document.getElementById("clearButton");
 // Clear All
 clearButton.addEventListener("click", function() {
     overallTotalValue = 0;
-    yen1.clear();
-    yen5.clear();
-    yen10.clear();
-    yen50.clear();
-    yen100.clear();
-    yen500.clear();
-    yen1000.clear();
-    yen5000.clear();
-    yen10000.clear();
+    for (var i = 0; i < allCurrencies.length; i++) {
+        allCurrencies[i].clear();
+    }
 });
-
-// 
-// // Plus Buttons
-// 
-
-// Plus 1 yen
-    document.getElementById("yen1PlusButton").addEventListener("click", function() {
-    yen1.increment();
-});
-// Plus 5 yen
-    document.getElementById("yen5PlusButton").addEventListener("click", function() {
-    yen5.increment();
-});
-// Plus 10 yen
-    document.getElementById("yen10PlusButton").addEventListener("click", function() {
-    yen10.increment();
-});
-// Plus 50 yen
-    document.getElementById("yen50PlusButton").addEventListener("click", function() {
-    yen50.increment();
-});
-// Plus 100 yen
-    document.getElementById("yen100PlusButton").addEventListener("click", function() {
-    yen100.increment();
-});
-// Plus 500 yen
-    document.getElementById("yen500PlusButton").addEventListener("click", function() {
-    yen500.increment();
-});
-// Plus 1000 yen
-    document.getElementById("yen1000PlusButton").addEventListener("click", function() {
-    yen1000.increment();
-});
-
-// 
-// // Minus Buttons
-//
-
-// Minus 1 yen
-    document.getElementById("yen1MinusButton").addEventListener("click", function() {
-    yen1.decrement();
-});
-// Minus 5 yen
-    document.getElementById("yen5MinusButton").addEventListener("click", function() {
-    yen5.decrement();
-});
-// Minus 10 yen
-    document.getElementById("yen10MinusButton").addEventListener("click", function() {
-    yen10.decrement();
-});
-// Minus 50 yen
-    document.getElementById("yen50MinusButton").addEventListener("click", function() {
-    yen50.decrement();
-});
-// Minus 100 yen
-    document.getElementById("yen100MinusButton").addEventListener("click", function() {
-    yen100.decrement();
-});
-// Minus 500 yen
-    document.getElementById("yen500MinusButton").addEventListener("click", function() {
-    yen500.decrement();
-});
-// Minus 1000 yen
-    document.getElementById("yen1000MinusButton").addEventListener("click", function() {
-    yen1000.decrement();
-});
-// Minus 5000 yen
-    document.getElementById("yen5000MinusButton").addEventListener("click", function() {
-    yen5000.decrement();
-});
-// Minus 10000 yen
-    document.getElementById("yen10000MinusButton").addEventListener("click", function() {
-    yen10000.decrement();
-});
-
-
 
 // // // // // // // //
 // // // // // // // // // // // // // // // //
 // End Click Events
-
-
-
-
-
-// 
-// //
-// Add Functions
-// //
-// 
-
-
-
-// // // // // // // //
-// // // // // // // // // // // // // // // //
-// End Add Functions
