@@ -1,16 +1,6 @@
+//
+//  Currency Object Template
 // 
-// //
-// // // // // // // //Objects, Arrays, and Variables
-// //
-// 
-
-// 
-// //
-//  Objects
-// //
-// 
-
-// Template object for currencies
 const currency = {
     // currency Properties
     baseValue: 0,
@@ -20,9 +10,7 @@ const currency = {
     countContainer: 0,
     totalValueContainer: 0,
 
-    // 
     // currency Methods
-    // 
 
     // Update total values for this currency and the overall total.
     updateTotals() {
@@ -54,6 +42,7 @@ const currency = {
         this.updateTotals();
         this.displayTotals();
     },
+
     // Decrement currency count down by 1
     decrement() {
         // Decrease by 1
@@ -77,7 +66,7 @@ const currency = {
 };
 
 // 
-// Create Currency
+// Create Currency objects
 // 
 
 // Array for all currency values
@@ -113,51 +102,20 @@ for (var i = 0; i < currencyValues.length; i++) {
     let newCurrency = createCurrency(currentValue);
 }
 
-console.log(allCurrencies);
-
-// // // // // // // //
-// // // // // // // // // // // // // // // //
-// End Objects
-
-
-
-
-
-
-// 
-// //
-// Initialize Variables
-// //
+//
+// Other Variables/Events
 // 
 
 // Total Value for all currency types
 let overallTotalValue = 0;
 
-// 
-// HTMl Element Variables
-// 
-
 // Clear Button
 let clearButton = document.getElementById("clearButton");
 
-// // // // // // // //
-// // // // // // // // // // // // // // // //
-// End Initialize Variables
-
-// 
-// //
-// Click Events
-// //
-// 
-
-// Clear All
+// Clear All click event
 clearButton.addEventListener("click", function() {
     overallTotalValue = 0;
     for (var i = 0; i < allCurrencies.length; i++) {
         allCurrencies[i].clear();
     }
 });
-
-// // // // // // // //
-// // // // // // // // // // // // // // // //
-// End Click Events
