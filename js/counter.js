@@ -18,15 +18,16 @@
 
 // Template object for currencies
 const currency = {
-    // Properties
+    // currency Properties
     baseValue: 0,
     count: 0,
     // Total cumulative value based on current count
     totalValue: 0,
     countContainer: 0,
     totalValueContainer: 0,
+
     // 
-    // Methods
+    // currency Methods
     // 
 
     // Update total values for this currency and the overall total.
@@ -90,7 +91,6 @@ function createCurrency(value) {
 
     let myString = `Yen${value}`;
     let newCurrency = eval(myString = Object.create(currency));
-    console.log(newCurrency);
     newCurrency.baseValue = value;
     newCurrency.count = 0;
     newCurrency.totalValue = 0;
@@ -100,103 +100,16 @@ function createCurrency(value) {
     document.getElementById(`yen${value}PlusButton`).addEventListener("click", function() {
         newCurrency.increment();
     });
-    
+    allCurrencies.push(newCurrency);
 }
 
-let myArrayLength = currencyValues.arrayLength;
-
 // Loop for creating all the currencies
-for (var i = 0; i < myArrayLength; i++) {
+for (var i = 0; i < currencyValues.length; i++) {
     let currentValue = currencyValues[i];
-    allCurrencies.push(createCurrency(currentValue));
+    let newCurrency = createCurrency(currentValue);
 }
 
 console.log(allCurrencies);
-
-
-
-// // ￥1 Object
-// let yen1 = Object.create(currency);
-// // Set ￥1 properties
-// yen1.baseValue = 1;
-// yen1.count = 0;
-// yen1.totalValue = 0;
-// yen1.countContainer = document.getElementById("yen1CountContainer")
-// yen1.totalValueContainer = document.getElementById("yen1TotalValueContainer")
-
-// ￥5 Object
-let yen5 = Object.create(currency);
-// Set ￥5 properties
-yen5.baseValue = 5;
-yen5.count = 0;
-yen5.totalValue = 0;
-yen5.countContainer = document.getElementById("yen5CountContainer")
-yen5.totalValueContainer = document.getElementById("yen5TotalValueContainer")
-
-// ￥10 Object
-let yen10 = Object.create(currency);
-// Set ￥10 properties
-yen10.baseValue = 10;
-yen10.count = 0;
-yen10.totalValue = 0;
-yen10.countContainer = document.getElementById("yen10CountContainer")
-yen10.totalValueContainer = document.getElementById("yen10TotalValueContainer")
-
-// ￥50 Object
-let yen50 = Object.create(currency);
-// Set ￥50 properties
-yen50.baseValue = 50;
-yen50.count = 0;
-yen50.totalValue = 0;
-yen50.countContainer = document.getElementById("yen50CountContainer")
-yen50.totalValueContainer = document.getElementById("yen50TotalValueContainer")
-
-// ￥100 Object
-let yen100 = Object.create(currency);
-// Set ￥100 properties
-yen100.baseValue = 100;
-yen100.count = 0;
-yen100.totalValue = 0;
-yen100.countContainer = document.getElementById("yen100CountContainer")
-yen100.totalValueContainer = document.getElementById("yen100TotalValueContainer")
-
-// ￥500 Object
-let yen500 = Object.create(currency);
-// Set ￥500 properties
-yen500.baseValue = 500;
-yen500.count = 0;
-yen500.totalValue = 0;
-yen500.countContainer = document.getElementById("yen500CountContainer")
-yen500.totalValueContainer = document.getElementById("yen500TotalValueContainer")
-
-// ￥1000 Object
-let yen1000 = Object.create(currency);
-// Set ￥1000 properties
-yen1000.baseValue = 1000;
-yen1000.count = 0;
-yen1000.totalValue = 0;
-yen1000.countContainer = document.getElementById("yen1000CountContainer")
-yen1000.totalValueContainer = document.getElementById("yen1000TotalValueContainer")
-
-// ￥5000 Object
-let yen5000 = Object.create(currency);
-// Set ￥5000 properties
-yen5000.baseValue = 5000;
-yen5000.count = 0;
-yen5000.totalValue = 0;
-yen5000.countContainer = document.getElementById("yen5000CountContainer")
-yen5000.totalValueContainer = document.getElementById("yen5000TotalValueContainer")
-
-// ￥10000 Object
-let yen10000 = Object.create(currency);
-// Set ￥10000 properties
-yen10000.baseValue = 10000;
-yen10000.count = 0;
-yen10000.totalValue = 0;
-yen10000.countContainer = document.getElementById("yen10000CountContainer")
-yen10000.totalValueContainer = document.getElementById("yen10000TotalValueContainer")
-
-
 
 // // // // // // // //
 // // // // // // // // // // // // // // // //
