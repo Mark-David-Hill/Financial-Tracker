@@ -305,6 +305,9 @@ template {
 [hidden] {
   display: none; }
 
+*, html {
+  width: 100%; }
+
 #toDoList {
   background-color: #9af6e9; }
 
@@ -333,11 +336,21 @@ template {
 main {
   display: flex;
   flex-direction: column;
-  justify-content: space-around; }
+  justify-content: stretch;
+  background-color: aquamarine;
+  padding: 1em; }
 
 .totalsRow {
   display: flex;
   flex-direction: row; }
+  .totalsRow button {
+    width: 5em;
+    height: 5em; }
+  .totalsRow span {
+    background-color: azure;
+    width: 50%;
+    margin: 1em;
+    font-size: 2em; }
 
 .currencyGrid {
   display: flex;
@@ -345,6 +358,18 @@ main {
 
 .currencyRow {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0.5em 0; }
+  .currencyRow img {
+    background-color: aquamarine;
+    width: 4.5em;
+    height: 4.5em; }
+  .currencyRow button {
+    font-size: 1.5em; }
+  .currencyRow span {
+    background-color: #aaaae5;
+    font-size: 2em;
+    text-align: center; }
 
 /*# sourceMappingURL=styles.css.map */
