@@ -330,5 +330,21 @@ template {
 /* end of media query */
 /* Common for large size- 1200px or 1024px */
 /* end of media query */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+
+.totalsRow {
+  display: flex;
+  flex-direction: row; }
+
+.currencyGrid {
+  display: flex;
+  flex-direction: column; }
+
+.currencyRow {
+  display: flex;
+  flex-direction: row; }
 
 /*# sourceMappingURL=styles.css.map */

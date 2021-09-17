@@ -1,0 +1,21 @@
+// Counter Grid
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.totalsRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.currencyGrid {
+    display: flex;
+    flex-direction: column;
+}
+
+.currencyRow {
+    display: flex;
+    flex-direction: row;
+}
