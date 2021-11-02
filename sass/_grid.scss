@@ -12,18 +12,35 @@
     // background-color: bisque;
     display: flex;
     flex-direction: row;
+    margin-left: 1em;
+    
 
-    button {
-        // width: 50%;
-        width: 4em;
-        height: 4em;
-        min-width: 4em;
+    #clearButton {
+        width: 3.2em;
+        height: 3.2em;
+        min-width: 3.2em;
+        border-radius: 50%;
+        border: none;
+        color: white;
+        background-color: #9CDAB1;
+        font-size: 18px;
+        padding: 0;
+    }
+
+    #totalValueContainer {
+        background-color: #F2EBEB;
+        border: solid 3px #D2D2D2;
+        text-align: center;
+        margin: auto;
+        padding: 0.5em;
+        width: 60%;
+        justify-self: right;
     }
 
     span {
         background-color: azure;
         width: 100%;
-        padding: 1em;
+        // padding: 1em;
         font-size: 1.5em;
     }
 }
