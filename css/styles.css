@@ -327,7 +327,15 @@ html, body {
 .mainGrid {
   display: flex;
   flex-direction: column;
-  padding: 1em; }
+  padding: 1em;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 2em;
+  background-color: white;
+  border-radius: 2%; }
+
+body {
+  background-color: #bdbdbd; }
 
 .totalsRow {
   display: flex;
@@ -369,11 +377,10 @@ html, body {
   .currencyRow img {
     width: 4.5em;
     height: 4.5em; }
-  .currencyRow .minusButton {
-    width: 50%; }
   .currencyRow button {
     color: #C4C4C4;
-    font-size: 3em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3.5em;
     font-weight: 900;
     width: 100%;
     background-color: white;
@@ -383,5 +390,10 @@ html, body {
     font-size: 1em;
     text-align: center;
     align-self: center; }
+  .currencyRow .currencyCountContainer, .currencyRow .currencyTotal {
+    border: solid 1px black;
+    padding: 0.3em 0; }
+  .currencyRow .currencyCountContainer {
+    margin-right: 0.4em; }
 
 /*# sourceMappingURL=styles.css.map */

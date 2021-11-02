@@ -4,6 +4,16 @@
     flex-direction: column;
     // background-color: aquamarine;
     padding: 1em;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 2em;
+    background-color: white;
+    // border: solid black 1px;
+    border-radius: 2%;
+}
+
+body {
+    background-color: rgb(189, 189, 189);
 }
 
 .totalsRow {
@@ -67,13 +77,11 @@
         height: 4.5em;
     }
 
-    .minusButton {
-        width: 50%;
-    }
-
     button {
         color: #C4C4C4;
-        font-size: 3em;
+        // font-family: 'Courier New', Courier, monospace;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 3.5em;
         font-weight: 900;
         width: 100%;
         background-color: white;
@@ -86,5 +94,14 @@
         // Align currency count/totals text horizontally and vertically
         text-align: center;
         align-self: center;
+    }
+
+    .currencyCountContainer, .currencyTotal {
+        border: solid 1px black;
+        padding: 0.3em 0;
+    }
+    
+    .currencyCountContainer {
+        margin-right: 0.4em;
     }
 }
