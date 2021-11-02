@@ -312,48 +312,30 @@ html, body {
   padding: 0px;
   overflow-x: hidden; }
 
-#toDoList {
-  background-color: #9af6e9; }
-
-#doSoon {
-  background-color: #d1ac48; }
-
-#doToday {
-  background-color: #82dd82; }
-
-#doThisWeek {
-  background-color: #d7e654; }
-
-#doThisMonth {
-  background-color: #df837c; }
-
-#doThisYear {
-  background-color: #4a70ee; }
-
-#doSomeday {
-  background-color: #e27feb; }
+#clearButton {
+  border-radius: 50%; }
 
 /* Smallest screen we deal with is 320px. 768px is about the width of a phone screen turned sideways. */
 /* end of media query */
 /* Common for large size- 1200px or 1024px */
 /* end of media query */
-main {
+.mainGrid {
   display: flex;
   flex-direction: column;
-  background-color: aquamarine;
   padding: 1em; }
 
 .totalsRow {
-  background-color: bisque;
   display: flex;
   flex-direction: row; }
   .totalsRow button {
-    width: 50%; }
+    width: 4em;
+    height: 4em;
+    min-width: 4em; }
   .totalsRow span {
     background-color: azure;
     width: 100%;
-    margin: 1em;
-    font-size: 2em; }
+    padding: 1em;
+    font-size: 1.5em; }
 
 .currencyGrid {
   display: flex;
@@ -376,6 +358,7 @@ main {
     width: 80%;
     background-color: #aaaae5;
     font-size: 1em;
-    text-align: center; }
+    text-align: center;
+    align-self: center; }
 
 /*# sourceMappingURL=styles.css.map */

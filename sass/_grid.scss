@@ -1,27 +1,30 @@
 // Counter Grid
-main {
+.mainGrid {
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
+    // background-color: aquamarine;
     padding: 1em;
 }
 
 .totalsRow {
-    background-color: bisque;
+    // margin-top: auto;
+
+    // background-color: bisque;
     display: flex;
     flex-direction: row;
 
     button {
-        width: 50%;
-        // width: 5em;
-        // height: 5em;
+        // width: 50%;
+        width: 4em;
+        height: 4em;
+        min-width: 4em;
     }
 
     span {
         background-color: azure;
         width: 100%;
-        margin: 1em;
-        font-size: 2em;
+        padding: 1em;
+        font-size: 1.5em;
     }
 }
 
@@ -29,6 +32,7 @@ main {
     display: flex;
     flex-direction: column;
     background-color: rgb(147, 95, 160);
+    // margin-bottom: auto;
 }
 
 .currencyRow {
@@ -50,6 +54,8 @@ main {
         width: 80%;
         background-color: rgb(170, 170, 229);
         font-size: 1em;
+        // Align currency count/totals text horizontally and vertically
         text-align: center;
+        align-self: center;
     }
 }
