@@ -45,6 +45,10 @@
     }
 }
 
+// #currencyHeader {
+
+// }
+
 .currencyGrid {
     display: flex;
     flex-direction: column;
@@ -53,7 +57,6 @@
 }
 
 .currencyRow {
-    background-color: cornflowerblue;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -63,13 +66,22 @@
         width: 4.5em;
         height: 4.5em;
     }
+
+    .minusButton {
+        width: 50%;
+    }
+
     button {
-        font-size: 1.5em;
+        color: #C4C4C4;
+        font-size: 3em;
+        font-weight: 900;
         width: 100%;
+        background-color: white;
+        border: none;
     }
     span {
         width: 80%;
-        background-color: rgb(170, 170, 229);
+        
         font-size: 1em;
         // Align currency count/totals text horizontally and vertically
         text-align: center;
