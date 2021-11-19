@@ -312,14 +312,6 @@ html, body {
   padding: 0px;
   overflow-x: hidden; }
 
-#clearButton {
-  border-radius: 50%;
-  border: none;
-  color: white;
-  background-color: #9CDAB1;
-  font-size: 18px;
-  padding: 0; }
-
 /* Smallest screen we deal with is 320px. 768px is about the width of a phone screen turned sideways. */
 /* end of media query */
 /* Common for large size- 1200px or 1024px */
@@ -376,7 +368,10 @@ body {
   margin: 0.2em 0; }
   .currencyRow img {
     width: 4.5em;
-    height: 4.5em; }
+    height: 4.5em;
+    border-radius: 50%; }
+  .currencyRow .squareImg {
+    border-radius: 0; }
   .currencyRow button {
     color: #C4C4C4;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

@@ -75,6 +75,11 @@ body {
     img {
         width: 4.5em;
         height: 4.5em;
+        border-radius: 50%;
+    }
+
+    .squareImg {
+        border-radius: 0;
     }
 
     button {
@@ -89,7 +94,6 @@ body {
     }
     span {
         width: 80%;
-        
         font-size: 1em;
         // Align currency count/totals text horizontally and vertically
         text-align: center;
