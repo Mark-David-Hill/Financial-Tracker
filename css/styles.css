@@ -342,9 +342,9 @@ body {
     color: white;
     background-color: #9CDAB1;
     font-size: 18px;
-    padding: 0; }
+    padding: 0;
+    margin-right: 2em; }
   .totalsRow #totalValueContainer {
-    background-color: #F2EBEB;
     border: solid 3px #D2D2D2;
     text-align: center;
     margin: auto;
@@ -358,8 +358,7 @@ body {
 
 .currencyGrid {
   display: flex;
-  flex-direction: column;
-  background-color: #935fa0; }
+  flex-direction: column; }
 
 .currencyRow {
   display: flex;
@@ -369,7 +368,8 @@ body {
   .currencyRow img {
     width: 4.5em;
     height: 4.5em;
-    border-radius: 50%; }
+    border-radius: 50%;
+    background-color: white; }
   .currencyRow .squareImg {
     border-radius: 0; }
   .currencyRow button {
@@ -378,11 +378,10 @@ body {
     font-size: 3.5em;
     font-weight: 900;
     width: 100%;
-    background-color: white;
     border: none; }
   .currencyRow span {
     width: 80%;
-    font-size: 1em;
+    font-size: 1.3em;
     text-align: center;
     align-self: center; }
   .currencyRow .currencyCountContainer, .currencyRow .currencyTotal {
@@ -390,5 +389,23 @@ body {
     padding: 0.3em 0; }
   .currencyRow .currencyCountContainer {
     margin-right: 0.4em; }
+
+.currencyTotal {
+  background-color: #CFEBD9; }
+
+#totalValueContainer {
+  background-color: #e6e7e6;
+  background-color: #F2EBEB; }
+
+.colName p {
+  font-size: 24px;
+  margin-left: .5em;
+  margin-bottom: 0;
+  font-weight: bold; }
+
+.smallColName p {
+  font-size: 15px;
+  margin-left: 13px;
+  margin-bottom: 0; }
 
 /*# sourceMappingURL=styles.css.map */

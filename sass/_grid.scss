@@ -10,6 +10,7 @@
     background-color: white;
     // border: solid black 1px;
     border-radius: 2%;
+    
 }
 
 body {
@@ -23,7 +24,6 @@ body {
     display: flex;
     flex-direction: row;
     margin-left: 1em;
-    
 
     #clearButton {
         width: 3.2em;
@@ -35,10 +35,12 @@ body {
         background-color: #9CDAB1;
         font-size: 18px;
         padding: 0;
+        // margin-left: 1em;
+        margin-right: 2em;
     }
 
     #totalValueContainer {
-        background-color: #F2EBEB;
+        // background-color: #F2EBEB;
         border: solid 3px #D2D2D2;
         text-align: center;
         margin: auto;
@@ -62,7 +64,7 @@ body {
 .currencyGrid {
     display: flex;
     flex-direction: column;
-    background-color: rgb(147, 95, 160);
+    // background-color: rgb(147, 95, 160);
     // margin-bottom: auto;
 }
 
@@ -71,11 +73,19 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     margin: 0.2em 0;
+    // border: black 1px dotted;
+    // background-color: #CFEBD9;
+    
+    // span {
+    //     background-color: white;
+    // }
+    
 
     img {
         width: 4.5em;
         height: 4.5em;
         border-radius: 50%;
+        background-color: white;
     }
 
     .squareImg {
@@ -89,12 +99,24 @@ body {
         font-size: 3.5em;
         font-weight: 900;
         width: 100%;
-        background-color: white;
+        // background-color: rgb(103, 146, 101);
         border: none;
+        // margin-left: .3em;
+        // margin-right: .3em;
+        // border-radius: 20%;
     }
+
+    // .plusButton {
+    //     margin-right: 10px;
+    // }
+
+    // .minusButton {
+    //     background-color: rgb(255, 176, 176);
+    // }
+
     span {
         width: 80%;
-        font-size: 1em;
+        font-size: 1.3em;
         // Align currency count/totals text horizontally and vertically
         text-align: center;
         align-self: center;
@@ -103,9 +125,42 @@ body {
     .currencyCountContainer, .currencyTotal {
         border: solid 1px black;
         padding: 0.3em 0;
+        // background-color: aqua;
     }
     
     .currencyCountContainer {
         margin-right: 0.4em;
+    }
+
+    
+
+    
+}
+
+.currencyTotal {
+    background-color: #CFEBD9;
+}
+
+#totalValueContainer {
+    background-color: #e6e7e6;
+    background-color: #F2EBEB;
+}
+
+.colName {
+    p{
+        font-size: 24px;
+        margin-left: .5em;
+        margin-bottom: 0;
+        font-weight: bold;
+    }
+    
+}
+
+.smallColName {
+    p {
+        font-size: 15px;
+        margin-left: 13px;
+        // margin-top: 30px;
+        margin-bottom: 0;
     }
 }
