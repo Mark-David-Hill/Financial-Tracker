@@ -6,11 +6,16 @@
     padding: 1em;
     max-width: 400px;
     margin: auto;
-    margin-top: 2em;
     background-color: white;
     // border: solid black 1px;
-    border-radius: 2%;
     padding-right: 2em;
+}
+
+@media only screen and (min-width: 768px) {
+    .mainGrid {
+        margin-top: 2em;
+        border-radius: 2%;
+    }
 }
 
 body {
@@ -37,6 +42,14 @@ body {
         padding: 0;
         // margin-left: 1em;
         margin-right: 2em;
+    }
+
+    #clearButton:hover {
+        background-color: #8bdaa5;
+    }
+
+    #clearButton:active {
+        background-color: #43da75;
     }
 
     #totalValueContainer {
@@ -106,8 +119,13 @@ body {
     }
 
     button:hover {
-        color: #7e7e7e;
+        color: #6b6b6b;
         background-color: rgb(253, 231, 210);
+    }
+
+    button:active {
+        color: #535353;
+        background-color: rgb(255, 226, 197);
     }
 
     // .plusButton {

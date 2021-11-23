@@ -322,11 +322,13 @@ html, body {
   padding: 1em;
   max-width: 400px;
   margin: auto;
-  margin-top: 2em;
   background-color: white;
-  border-radius: 2%;
   padding-right: 2em; }
 
+@media only screen and (min-width: 768px) {
+  .mainGrid {
+    margin-top: 2em;
+    border-radius: 2%; } }
 body {
   background-color: #bdbdbd; }
 
@@ -345,6 +347,10 @@ body {
     font-size: 18px;
     padding: 0;
     margin-right: 2em; }
+  .totalsRow #clearButton:hover {
+    background-color: #8bdaa5; }
+  .totalsRow #clearButton:active {
+    background-color: #43da75; }
   .totalsRow #totalValueContainer {
     border: solid 3px #D2D2D2;
     text-align: center;
@@ -382,8 +388,11 @@ body {
     border: none;
     border-radius: 10%; }
   .currencyRow button:hover {
-    color: #7e7e7e;
+    color: #6b6b6b;
     background-color: #fde7d2; }
+  .currencyRow button:active {
+    color: #535353;
+    background-color: #ffe2c5; }
   .currencyRow span {
     width: 80%;
     font-size: 1.3em;
